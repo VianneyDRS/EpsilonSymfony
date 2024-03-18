@@ -12,6 +12,7 @@
 {% include '_layout/navbar.html.twig' %}
 <div style="background: linear-gradient(to bottom, #F2B416 , #000000 )">
 {% block body %}
+{% set sessionValue = app.session.get('session_key') %}
 {% endblock %}
 
 </div>
