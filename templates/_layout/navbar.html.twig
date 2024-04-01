@@ -1,46 +1,24 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-
-    <style>
-    .bs-icon-sm {
-    --bs-icon-size: 1rem;
-    }
-    .bs-icon.bs-icon-rounded {
-    border-radius: .5rem;
-    }
-    .bs-icon {
-    --bs-icon-size: .75rem;
-    display: flex;
-    flex-shrink: 0;
-    justify-content: center;
-    align-items: center;
-    font-size: var(--bs-icon-size);
-    width: calc(var(--bs-icon-size) * 2);
-    height: calc(var(--bs-icon-size) * 2);
-    color: var(--bs-primary);
-    }
-
-</style>
-</head>
-
-
-<nav class="navbar navbar-expand-md py-3" style="background: #1b1b1b;">
-    <div class="container"><a class="navbar-brand d-flex align-items-center" href="/accueil"><span class="bs-icon-sm bs-icon-rounded d-flex justify-content-center align-items-center me-2 bs-icon" style="color: #FFFFFF; background-color: #ecab03; width: 35px; height: 35px;">
-        
-    </span><span style="color: #ffffff;font-family: Inter, sans-serif;">FNM</span></a>
-        <div class="collapse navbar-collapse" id="navcol-1">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item"><a class="nav-link active" href="../articles/1" style="color: #ffffff;font-family: Inter, sans-serif;margin-left: 40px;">Traditionnel</a></li>
-                <li class="nav-item"><a class="nav-link active" href="../articles/2" style="color: #ffffff;font-family: Inter, sans-serif;margin-left: 40px;">Tex-mex</a></li>
-                <li class="nav-item"><a class="nav-link active" href="../articles/3" style="color: #ffffff;font-family: Inter, sans-serif;margin-left: 40px;">Oriental</a></li>
-                <li class="nav-item"><a class="nav-link active" href="../articles/4" style="color: #ffffff;font-family: Inter, sans-serif;margin-left: 40px;">Américain</a></li>
-            </ul>
-            <span class="navbar-text"><a href="../panier"><img width="29" height="29" src="" style="margin: 0px;margin-right: 10px;"></a></span>
-                <a class="btn" href="" style="color: rgb(255,255,255);font-family: Inter, sans-serif; background-color: #ecab03;">Se déconnecter</a>
+<nav class="navbar navbar-expand-md py-3 bg-gray-700">
+    <div class="container">
+        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+            <div class="hidden sm:ml-6 sm:block">
+                <div class="flex space-x-4">
+                    <a class="navbar-brand flex items-center" href="{{ path('app_accueil') }}">
+                        <span class="text-white">Accueil</span>
+                    </a>
+                    <div class="collapse navbar-collapse" id="navcol-1">
+                            <a class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" href="{{ path('app_travail1') }}">Travail d'upload</a>
+                            <a class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" href="{{ path('app_travail2') }}">travail 2</a>
+                            <a class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" href="{{ path('app_travail3') }}">Travail 3</a>
+                    </div>
+                </div>
             </div>
+        
+            {% if not app.session.get('pseudo') %}
+                <a class="btn ml-4 text-white font-sans bg-yellow-500" href="{{ path('app_login') }}">Se connecter</a>
+            {% else %}
+                <a class="btn ml-4 text-white font-sans bg-yellow-500" href="{{ path('app_logout') }}">Se déconnecter</a>
+            {% endif %}
+        </div>
     </div>
 </nav>

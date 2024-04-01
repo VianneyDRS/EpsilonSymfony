@@ -7,4 +7,3 @@
 ## php bin/console make:migration
 ## php bin/console doctrine:migrations:migrate
 ## php -S localhost:8000 -t public
-## npm run watch

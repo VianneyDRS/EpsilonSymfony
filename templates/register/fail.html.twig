@@ -1,14 +1,15 @@
 {% block body %}
-<body style="background: linear-gradient(to bottom, #F2B416 , #000000 ); display: flex;justify-content: center;align-items: center;flex-direction: column">
-    {% if error %}
-        <div>
-            {{ error }} 
-        </div>
-    {% endif %}
+<body style="background: linear-gradient(to bottom, #F2B416 , #000000 );display: flex;justify-content: center;align-items: center;flex-direction: column">
+    <div>
+        {{ error }} 
+    </div>
     <div class="container" style="padding-top:150px; padding-bottom:120px; ">
         <div class="row justify-content-center">
             <div class="col-md-7 pt-5 pb-3 rounded-3" style="border: 2px solid black; background-color:#ECAB03;">
-                <form class="px-5 mx-5" method="POST" action="{{ path('app_loginVerification') }}">
+                <form class="px-5 mx-5" method="POST" action="{{ path('app_registerVerification') }}">
+                <div class="form-group">
+                        <input type="text" class="form-control mb-3" id="pseudo" name="pseudo" placeholder="Pseudo/Nom" required style="border: 2px solid black;">
+                    </div>
                     <div class="form-group">
                         <input type="email" class="form-control mb-3" id="mail" name="mail" placeholder="Adresse Email" required style="border: 2px solid black;">
                     </div>
@@ -16,15 +17,12 @@
                         <input type="password" class="form-control mb-3" id="password" name="password" placeholder="Mot de passe" required style="border: 2px solid black;">
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn px-5" style="color:#ffffff; background-color:#020202;">Se connecter</button>
+                        <button type="submit" class="btn px-5" style="color:#ffffff; background-color:#020202;">S'inscrire</button>
                     </div>
                 </form>
                 <div class="mt-3 mb-5 d-flex justify-content-around">
                     <div>
-                        <a href="{{ path('app_register') }}" class="text-white">S'inscrire ?</a>
-                    </div>
-                    <div>
-                        <a href="#" class="text-white">Mot de passe oublié ?</a>
+                        <a href="{{ path('app_login') }}" class="text-white">Se connecter</a>
                     </div>
                 </div>
             </div>
