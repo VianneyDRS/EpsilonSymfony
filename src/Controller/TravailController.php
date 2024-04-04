@@ -20,20 +20,32 @@ class TravailController extends AbstractController
     }
     
     #[Route('/travail1', name: 'app_travail1')]
-    public function travail1(): Response
+    public function travail1(Request $request): Response
     {
+        $session = $request->getSession();
+        if (!$session->has('adresseMail')) {
+            return $this->redirectToRoute('app_login');
+        }
         return $this->render('accueil/travail_1.html.twig');
     }
 
     #[Route('/travail2', name: 'app_travail2')]
-    public function travail2(): Response
+    public function travail2(Request $request): Response
     {
+        $session = $request->getSession();
+        if (!$session->has('adresseMail')) {
+            return $this->redirectToRoute('app_login');
+        }
         return $this->render('accueil/travail_2.html.twig');
     }
 
     #[Route('/travail3', name: 'app_travail3')]
-    public function travail3(): Response
+    public function travail3(Request $request): Response
     {
+        $session = $request->getSession();
+        if (!$session->has('adresseMail')) {
+            return $this->redirectToRoute('app_login');
+        }
         return $this->render('accueil/travail_3.html.twig');
     }
     
@@ -41,6 +53,10 @@ class TravailController extends AbstractController
     #[Route('/upload', name: 'app_upload_file')]
     public function upload(Request $request)
     {
+        $session = $request->getSession();
+        if (!$session->has('adresseMail')) {
+            return $this->redirectToRoute('app_login');
+        }
         try {
             $file = $request->files->get('fichier');
         }

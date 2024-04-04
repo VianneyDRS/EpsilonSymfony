@@ -58,6 +58,7 @@ class LoginController extends AbstractController
                 $session = $request->getSession();
                 $session->start();
                 $session->set('pseudo', $user->getPseudo());
+                $session->set('adresseMail', $user->getEmail());
                 return $this->redirectToRoute('app_accueil');
             }
             else {

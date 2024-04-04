@@ -25,8 +25,6 @@ class LogoutController extends AbstractController
     #[Route('/logout', name: 'app_logout')]
     public function index(Session $session, EntityManagerInterface $entityManager): Response
     {
-        $userRepository = $entityManager->getRepository(User::class);
-        $user = $userRepository->findOneBy(['pseudo' => $session->get('pseudo')]);
         $session->invalidate();
         return $this->redirectToRoute('app_vide');
     }
